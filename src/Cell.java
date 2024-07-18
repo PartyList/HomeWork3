@@ -49,27 +49,36 @@ public class Cell extends Position {
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
         //The cell is Dead.
         if (this.condition == LIVINGCONDITION.DEAD && healthyNeighbors == 3) {
-            //Brings back the cell to life
+            //Bring the cell to life.
             return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
         }
-        //The cell is dying.
+        //The cell is dying
         else if (this.condition == LIVINGCONDITION.DYING) {
-            //Bring back the cell to life.
+            //The cell dies
             if (healthyNeighbors != 3 || sickNeighbors > 1) {
                 return new Cell(this.row, this.column, LIVINGCONDITION.DEAD);
             }
+            //The cell is healthy
             return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
-        } else if (this.condition == LIVINGCONDITION.SICK) {
+        }
+        //The cell is sick
+        else if (this.condition == LIVINGCONDITION.SICK) {
             if (healthyNeighbors < 2 || sickNeighbors > 2 || healthyNeighbors > 3) {
+                //The cell is dying
                 return new Cell(this.row, this.column, LIVINGCONDITION.DYING);
             } else {
+                //The cell is healthy
                 return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
             }
-        } else if (this.condition == LIVINGCONDITION.HEALTHY) {
-            if (sickNeighbors > 3 || healthyNeighbors < 2) {
+        }
+        //The cell is healthy
+        else if (this.condition == LIVINGCONDITION.HEALTHY) {
+            if (sickNeighbors > 3 || healthyNeighbors < 2||healthyNeighbors > 3) {
+                //the cell is sick
                 return new Cell(this.row, this.column, LIVINGCONDITION.SICK);
             }
         }
+        //The cell stays the same
         return this;
     }
 
@@ -96,13 +105,13 @@ public class Cell extends Position {
     public int hashCode() {
         switch (this.condition) {
             case HEALTHY:
-                return 0;
-            case SICK:
-                return 1;
-            case DYING:
-                return 2;
-            case DEAD:
                 return 3;
+            case SICK:
+                return 2;
+            case DYING:
+                return 1;
+            case DEAD:
+                return 0;
             default:
                 return -1;
 
