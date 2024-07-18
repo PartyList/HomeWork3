@@ -3,6 +3,7 @@ import java.util.Random;
 public class Board {
     private Cell[][] Cells;
     final int rows,cols;
+    final int DEAD_CELL = 3;
 
     public Board(int rows, int cols,int range, int seed) {
         this.rows = rows;
@@ -28,7 +29,7 @@ public class Board {
             for (int j = 0; j < cols; j++) {
                 rand_result = rand.nextInt(range);
                 // Choosing dead or healthy cell by odd or even random number.
-                if (rand_result % 2 == 0)
+                 if (rand_result % 2 == 0)
                     Cells[i][j] = new Cell(i, j, LIVINGCONDITION.DEAD);
                 else
                     Cells[i][j] = new Cell(i, j, LIVINGCONDITION.HEALTHY);
@@ -36,6 +37,8 @@ public class Board {
             }
         }
     }
+
+
 
     /**
      * A method to check every neighbor cell whether he is healthy or sick for next generation.
@@ -141,8 +144,13 @@ public class Board {
         String str = "";
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                str += (this.Cells[i][j]).conditionToString() + " ";
+                //fit to output
+                if(j != cols -1)
+                    str += (this.Cells[i][j]).conditionToString() + " ";
+                else
+                    str += (this.Cells[i][j]).conditionToString();
             }
+            //fit to output
             if(i != rows - 1) str += "\n";
         }
         return str;
