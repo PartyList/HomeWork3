@@ -14,19 +14,10 @@ public class Main {
     }
 
     public static void test1(){
-        Game game = new Game(3, 3, 3, 2, 1);
+        Game game = new Game(3, 3, 3, 2, 1000);
         game.runGame();
-        Random rand = new Random(2);
 
-        System.out.print(rand.nextInt(3));
-        System.out.print(rand.nextInt(3));
-        System.out.println(rand.nextInt(3));
-        System.out.print(rand.nextInt(3));
-        System.out.print(rand.nextInt(3));
-        System.out.println(rand.nextInt(3));
-        System.out.print(rand.nextInt(3));
-        System.out.print(rand.nextInt(3));
-        System.out.println(rand.nextInt(3));
+
 
 
 

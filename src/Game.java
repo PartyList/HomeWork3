@@ -35,7 +35,6 @@ public class Game extends Board{
             System.out.println(newGame);
             System.out.println("Cells have stabilized.");
         }
-        System.out.println();
     }
 
     /**
@@ -44,16 +43,14 @@ public class Game extends Board{
      * @return The condition to continue or stop (according to it's ending)
      */
     private int stopGame(Game game){
-        Board nextGenerationBoard = new Board(game);
-        nextGenerationBoard.nextGeneration();
-        if(this.equals(nextGenerationBoard)){
-            return CELLS_STABILIZED;
-        }
-        //
-        if(((Board)this).hashCode() == 0){
+        if(game.hashCode() == 0){
             return ALL_CELLS_DEAD;
         }
-        //Game continues
+        Game nextGame = new Game(game);
+        nextGame.nextGeneration();
+        if(game.equals(nextGame)){
+            return CELLS_STABILIZED;
+        }
         return CONTINUE;
     }
 }

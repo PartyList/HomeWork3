@@ -27,6 +27,7 @@ public class Board {
         int rand_result;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
+
                 rand_result = rand.nextInt(range);
                 // Choosing dead or healthy cell by odd or even random number.
                  if (rand_result % 2 == 0)
