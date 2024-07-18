@@ -7,11 +7,16 @@ public class Cell extends Position {
     }
 
     /**
-     * A method to see of a cell is dead or alive(healthy,sick or dying).
-     * @return 0 when dead otherwise 1.
+     * A method to see of a cell is healthy or sick.
+     * @return 0 when sick , 1 when healthy otherwise 2.
      */
-    public int isCellDead(){
-        return condition == LIVINGCONDITION.DEAD ? 0 : 1;
+    public int cellHealthyOrSick(){
+        if(condition == LIVINGCONDITION.HEALTHY)
+            return 1;
+        else if(condition == LIVINGCONDITION.SICK)
+            return 0;
+        else
+            return 2;
     }
 
     /**
@@ -42,17 +47,17 @@ public class Cell extends Position {
      * @return the new cell for the next generation
      */
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
+        //The cell is Dead.
         if (this.condition == LIVINGCONDITION.DEAD && healthyNeighbors == 3) {
             return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
         }
-        //Cell is Sick
         else if (this.condition == LIVINGCONDITION.DYING) {
             if (healthyNeighbors != 3 || sickNeighbors > 1) {
                 return new Cell(this.row, this.column, LIVINGCONDITION.DEAD);
             }
             return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
         } else if (this.condition == LIVINGCONDITION.SICK) {
-            if (healthyNeighbors < 2 || sickNeighbors > 3) {
+            if (healthyNeighbors < 2 || sickNeighbors > 2 || healthyNeighbors > 3) {
                 return new Cell(this.row, this.column, LIVINGCONDITION.DYING);
             } else {
                 return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);

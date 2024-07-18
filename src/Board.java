@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Board {
-    final Cell[][] Cells;
+    private Cell[][] Cells;
     final int rows,cols;
 
     public Board(int rows, int cols,int range, int seed) {
@@ -33,34 +33,41 @@ public class Board {
     }
 
     /**
-     * A method to check every neighbor cell whether he is alive or dead for next generation.
+     * A method to check every neighbor cell whether he is healthy or sick for next generation.
      * @param cell
      * @return int array of 2 numbers, the first for the dead, the second for the alive.
      */
     private int[] neighboursCondition(Cell cell){
-        int [] dead_alive = new int[2];
+        int [] health_sick = new int[3];
         int row = cell.row;
         int col = cell.column;
 
         //check all neighbours
         if(row + 1 < rows) //down
-            dead_alive[Cells[row+1][col].isCellDead()]++;
-        if(col + 1 < cols)//right
-            dead_alive[Cells[row][col+1].isCellDead()]++;
-        if(row + 1 < rows && col + 1 < cols)//down&right
-            dead_alive[Cells[row+1][col+1].isCellDead()]++;
-        if(col - 1 >= 0)//left
-            dead_alive[Cells[row][col-1].isCellDead()]++;
-        if(row + 1 < rows && col - 1 >= 0)//down&left
-            dead_alive[Cells[row+1][col-1].isCellDead()]++;
-        if(row - 1 >= 0)//up
-            dead_alive[Cells[row-1][col].isCellDead()]++;
-        if(row - 1 >= 0 && col - 1 >= 0)//up&left
-            dead_alive[Cells[row-1][col-1].isCellDead()]++;
-        if(row - 1 >= 0 && col + 1 < cols)//up&right
-            dead_alive[Cells[row-1][col+1].isCellDead()]++;
+            health_sick[Cells[row+1][col].cellHealthyOrSick()]++;
 
-        return dead_alive;
+        if(col + 1 < cols)//right
+            health_sick[Cells[row][col+1].cellHealthyOrSick()]++;
+
+        if(row + 1 < rows && col + 1 < cols)//down&right
+            health_sick[Cells[row+1][col+1].cellHealthyOrSick()]++;
+
+        if(col - 1 >= 0)//left
+            health_sick[Cells[row][col-1].cellHealthyOrSick()]++;
+
+        if(row + 1 < rows && col - 1 >= 0)//down&left
+            health_sick[Cells[row+1][col-1].cellHealthyOrSick()]++;
+
+        if(row - 1 >= 0)//up
+            health_sick[Cells[row-1][col].cellHealthyOrSick()]++;
+
+        if(row - 1 >= 0 && col - 1 >= 0)//up&left
+            health_sick[Cells[row-1][col-1].cellHealthyOrSick()]++;
+
+        if(row - 1 >= 0 && col + 1 < cols)//up&right
+            health_sick[Cells[row-1][col+1].cellHealthyOrSick()]++;
+
+        return health_sick;
     }
 
     /**
@@ -69,16 +76,16 @@ public class Board {
      */
     public void nextGeneration(){
         Cell current_cell;
-        Cell new_cell;
+        Cell[][] new_cells = new Cell[rows][cols];
         int [] dead_alive = new int[2];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 current_cell = Cells[i][j];
                 dead_alive = neighboursCondition(current_cell);
-                new_cell = current_cell.nextGeneration(dead_alive[1],dead_alive[0]);
-                Cells[i][j] = new_cell;
+                new_cells[i][j] = current_cell.nextGeneration(dead_alive[1],dead_alive[0]);
             }
         }
+        Cells = new_cells;
     }
 
 
