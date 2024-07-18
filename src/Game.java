@@ -44,7 +44,6 @@ public class Game extends Board{
      * @return The condition to continue or stop (according to it's ending)
      */
     private int stopGame(Game game){
-        //creates a copy board to test
         Board nextGenerationBoard = new Board(game);
         nextGenerationBoard.nextGeneration();
         if(this.equals(nextGenerationBoard)){
