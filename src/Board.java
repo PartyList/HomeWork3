@@ -59,8 +59,8 @@ public class Board {
             dead_alive[Cells[row-1][col-1].isCellDead()]++;
         if(row - 1 >= 0 && col + 1 < cols)//up&right
             dead_alive[Cells[row-1][col+1].isCellDead()]++;
-        System.out.println("Dead amount:" + dead_alive[0]);
-        System.out.println("Alive amount: " + dead_alive[1]);
+        //System.out.println("Dead amount:" + dead_alive[0]);
+        //System.out.println("Alive amount: " + dead_alive[1]);
         return dead_alive;
     }
 

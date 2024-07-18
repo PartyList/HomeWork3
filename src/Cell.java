@@ -49,13 +49,13 @@ public class Cell extends Position {
         if (this.condition == LIVINGCONDITION.DEAD && healthyNeighbors == 3) {
             return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
         }
-        //Cell is Sick
         else if (this.condition == LIVINGCONDITION.DYING) {
             if (healthyNeighbors != 3 || sickNeighbors > 1) {
                 return new Cell(this.row, this.column, LIVINGCONDITION.DEAD);
             }
             return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
-        } else if (this.condition == LIVINGCONDITION.SICK) {
+        }
+        else if (this.condition == LIVINGCONDITION.SICK) {
             if (healthyNeighbors < 2 || sickNeighbors > 3) {
                 return new Cell(this.row, this.column, LIVINGCONDITION.DYING);
             } else {
