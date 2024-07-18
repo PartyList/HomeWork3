@@ -6,10 +6,6 @@ public class Cell extends Position {
         this.condition = condition;
     }
 
-    public Cell(int row, int column) {
-        this(row, column, LIVINGCONDITION.HEALTHY);
-    }
-
     /**
      * A method to see of a cell is dead or alive(healthy,sick or dying).
      * @return 0 when dead otherwise 1.
@@ -74,10 +70,12 @@ public class Cell extends Position {
      *
      * @param other other cell
      * @return whether this cell and other cell are in the same condition
-     * @override
      */
-    public boolean equals(Cell other) {
-        return (this.condition == other.condition);
+    @Override
+    public boolean equals(Object other) {
+        if(other == null || getClass() != other.getClass()) return false;
+
+        return this.condition == ((Cell)other).condition;
     }
 
     /**
@@ -85,9 +83,9 @@ public class Cell extends Position {
      *
      * @return The specified number for each condition from 0-4.
      * In case of error we get -1
-     * @override
      */
-    public int hashcode() {
+    @Override
+    public int hashCode() {
         switch (this.condition) {
             case HEALTHY:
                 return 0;

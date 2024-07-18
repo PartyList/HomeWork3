@@ -59,8 +59,7 @@ public class Board {
             dead_alive[Cells[row-1][col-1].isCellDead()]++;
         if(row - 1 >= 0 && col + 1 < cols)//up&right
             dead_alive[Cells[row-1][col+1].isCellDead()]++;
-        System.out.println("Dead amount:" + dead_alive[0]);
-        System.out.println("Alive amount: " + dead_alive[1]);
+
         return dead_alive;
     }
 
@@ -70,12 +69,14 @@ public class Board {
      */
     public void nextGeneration(){
         Cell current_cell;
+        Cell new_cell;
         int [] dead_alive = new int[2];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 current_cell = Cells[i][j];
                 dead_alive = neighboursCondition(current_cell);
-                current_cell = current_cell.nextGeneration(dead_alive[1],dead_alive[0]);
+                new_cell = current_cell.nextGeneration(dead_alive[1],dead_alive[0]);
+                Cells[i][j] = new_cell;
             }
         }
     }
