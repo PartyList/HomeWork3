@@ -10,6 +10,11 @@ public class Board {
         this.Cells = new Cell[rows][cols];
         initiateBoard(seed,range);
     }
+    public Board(Board new_board) {
+        this.rows = new_board.rows;
+        this.cols = new_board.cols;
+        this.Cells = new_board.Cells;
+    }
 
     /**
      * This method is activated when creating board, as we want to create all the cells in the board.
@@ -24,9 +29,9 @@ public class Board {
                 rand_result = rand.nextInt(range);
                 // Choosing dead or healthy cell by odd or even random number.
                 if (rand_result % 2 == 0)
-                    Cells[i][j] = new Cell(i, j, LIVINGCONDITION.HEALTHY);
-                else
                     Cells[i][j] = new Cell(i, j, LIVINGCONDITION.DEAD);
+                else
+                    Cells[i][j] = new Cell(i, j, LIVINGCONDITION.HEALTHY);
 
             }
         }
@@ -138,7 +143,7 @@ public class Board {
             for (int j = 0; j < cols; j++) {
                 str += (this.Cells[i][j]).conditionToString() + " ";
             }
-            str += "\n"; // maybe remove at last, check in the end!!!!
+            if(i != rows - 1) str += "\n";
         }
         return str;
     }
