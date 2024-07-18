@@ -20,7 +20,6 @@ public class Cell extends Position {
     }
 
     /**
-     * !!!!!!!!!!!!!!!!!MAYBE CHANGE THIS TO toString method and override?!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      * This method is to convert the condition to string.
      * @return string for LIVING CONDITION
      */
