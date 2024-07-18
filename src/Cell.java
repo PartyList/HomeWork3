@@ -49,9 +49,12 @@ public class Cell extends Position {
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
         //The cell is Dead.
         if (this.condition == LIVINGCONDITION.DEAD && healthyNeighbors == 3) {
+            //Brings back the cell to life
             return new Cell(this.row, this.column, LIVINGCONDITION.HEALTHY);
         }
+        //The cell is dying.
         else if (this.condition == LIVINGCONDITION.DYING) {
+            //Bring back the cell to life.
             if (healthyNeighbors != 3 || sickNeighbors > 1) {
                 return new Cell(this.row, this.column, LIVINGCONDITION.DEAD);
             }
