@@ -17,5 +17,19 @@ public class Main {
         System.out.println(board);
         board.nextGeneration();
         System.out.println(board);
+        board.nextGeneration();
+        System.out.println(board);
+        board.nextGeneration();
+        System.out.println(board);
+        board.nextGeneration();
+        System.out.println(board);
+        board.nextGeneration();
+        System.out.println(board);
+        board.nextGeneration();
+        System.out.println(board);
+        board.nextGeneration();
+        System.out.println(board);
+        board.nextGeneration();
+        System.out.println(board);
     }
 }
