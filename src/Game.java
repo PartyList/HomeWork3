@@ -2,8 +2,8 @@ public class Game extends Board{
     private final int maxGen;
     private final int CONTINUE = 1, CELLS_STABILIZED = -1, ALL_CELLS_DEAD = 0;
 
-    public Game(int row, int col, int range, int seed, int maxGen){
-        super(row,col,range,seed);
+    public Game(int row, int col, int seed, int range, int maxGen){
+        super(row,col,seed,range);
         this.maxGen = maxGen;
     }
     public Game(Game game){

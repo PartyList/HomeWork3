@@ -5,7 +5,7 @@ public class Board {
     final int rows,cols;
     final int DEAD_CELL = 3;
 
-    public Board(int rows, int cols,int range, int seed) {
+    public Board(int rows, int cols,int seed, int range) {
         this.rows = rows;
         this.cols = cols;
         this.Cells = new Cell[rows][cols];
