@@ -20,7 +20,7 @@ public class Cell extends Position {
     }
 
     public boolean equals(Object other) {
-        return other != null && this.getClass() != other.getClass();
+        return (other != null && this.getClass() == other.getClass());
     }
 
     /**
