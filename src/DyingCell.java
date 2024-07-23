@@ -1,5 +1,5 @@
 public class DyingCell extends Cell {
-    final int EXACT_HEALTHY_NEIGHBORS =3;
+    final int HEALTHY_NEIGHBORS_TO_BE_HEALTHY =3;
     final int TOO_MANY_SICK = 1;
     final int DYING_CELL = 1;
     public DyingCell(int row, int column) {
@@ -35,7 +35,7 @@ public class DyingCell extends Cell {
     @Override
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
         //The cell dies
-        if (healthyNeighbors != EXACT_HEALTHY_NEIGHBORS || sickNeighbors > TOO_MANY_SICK) {
+        if (healthyNeighbors != HEALTHY_NEIGHBORS_TO_BE_HEALTHY || sickNeighbors > TOO_MANY_SICK) {
             return new DeadCell(this.row, this.column);
         }
         //The cell is healthy

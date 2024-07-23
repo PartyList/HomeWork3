@@ -5,6 +5,7 @@ public class Cell extends Position {
     final int HEALTHY = 1;
     final int SICK = 0;
     final int ERROR = 2;
+
     public Cell(int row, int column) {
         super(row, column);
     }
