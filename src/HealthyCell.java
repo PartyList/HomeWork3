@@ -1,26 +1,19 @@
-public class Cell extends Position {
-    final int CELL = -1;
+public class HealthyCell extends Cell {
+    final int TOO_MANY_SICK = 3;
+    final int ENOUGH_HEALTHY = 3;
+    final int NOT_ENOUGH_HEALTHY = 2;
     final int HEALTHY_CELL = 3;
-    final int SICK_CELL = 2;
-    final int HEALTHY = 1;
-    final int SICK = 0;
-    final int ERROR = 2;
-    public Cell(int row, int column) {
+    public HealthyCell(int row, int column) {
         super(row, column);
     }
-
-
     /**
      * This method is to convert the condition to string.
      *
      * @return string for LIVING CONDITION
      */
+    @Override
     public String conditionToString() {
-        return "";
-    }
-
-    public boolean equals(Object other) {
-        return other != null && this.getClass() != other.getClass();
+        return "H";
     }
 
     /**
@@ -31,34 +24,21 @@ public class Cell extends Position {
      */
     @Override
     public int hashCode() {
-        return CELL;
+        return HEALTHY_CELL;
     }
-
-
     /**
      * Looks unto the neighbors (only healthy and sick neighbors) of the Cell and returns the cell of the new generation accordingly
-     *
      * @param healthyNeighbors the amount of healthy neighbors of the cell
-     * @param sickNeighbors    the amount of sick neighbors of the cell
+     * @param sickNeighbors the amount of sick neighbors of the cell
      * @return the new cell for the next generation
      */
+    @Override
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
+        //The cell is healthy
+        if (sickNeighbors > TOO_MANY_SICK || healthyNeighbors < NOT_ENOUGH_HEALTHY || healthyNeighbors > ENOUGH_HEALTHY) {
+            //the cell is sick
+            return new SickCell(this.row, this.column);
+        }
         return this;
-    }
-
-    /**
-     *   A method to see of a cell is healthy or sick.
-     *
-     *   @return 0 when sick , 1 when healthy otherwise 2.
-     *
-     */
-    public int cellHealthyOrSick() {
-        if (this.hashCode() == HEALTHY_CELL)
-            return HEALTHY;
-        else if (this.hashCode() == SICK_CELL)
-            return SICK;
-
-        return ERROR;
-
     }
 }

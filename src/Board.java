@@ -31,9 +31,9 @@ public class Board {
                 rand_result = rand.nextInt(range);
                 // Choosing dead or healthy cell by odd or even random number.
                  if (rand_result % 2 == 0)
-                    Cells[i][j] = new Cell(i, j, LIVINGCONDITION.DEAD);
+                    Cells[i][j] = new DeadCell(i, j);
                 else
-                    Cells[i][j] = new Cell(i, j, LIVINGCONDITION.HEALTHY);
+                    Cells[i][j] = new HealthyCell(i, j);
 
             }
         }
