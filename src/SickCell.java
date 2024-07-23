@@ -1,4 +1,4 @@
-public class SickCell extends HealthyCell {
+public class SickCell extends Cell {
     final int TOO_MANY_SICK = 2;
     final int ENOUGH_HEALTHY = 3;
     final int NOT_ENOUGH_HEALTHY = 2;

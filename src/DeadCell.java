@@ -1,4 +1,4 @@
-public class DeadCell extends DyingCell {
+public class DeadCell extends Cell {
     final int EXACT_HEALTHY_NEIGHBORS =3;
     final int DEAD_CELL = 0;
     public DeadCell(int row, int column) {
