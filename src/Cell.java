@@ -1,5 +1,4 @@
 public abstract class Cell extends Position {
-    final int UNDEFINED = -1;
 
     public Cell(int row, int column) {
         super(row, column);
