@@ -19,6 +19,7 @@ public class DeadCell extends Cell {
      *
      * @return The specified number for each condition from Healthy to Dead
      */
+    @Override
     public int hashCode() {
         return DEAD_CELL;
     }
