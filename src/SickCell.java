@@ -4,6 +4,7 @@ public class SickCell extends Cell {
     final int NOT_ENOUGH_HEALTHY = 2;
     final int SICK_CELL = 2;
     final int IS_SICK = 0;
+
     public SickCell(int row, int column) {
         super(row, column);
     }
@@ -21,6 +22,7 @@ public class SickCell extends Cell {
      *
      * @return The specified number for each condition from Healthy to Dead
      */
+    @Override
     public int hashCode() {
         return SICK_CELL;
     }

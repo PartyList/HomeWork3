@@ -110,7 +110,7 @@ public class Board {
         if(obj == null || getClass() != obj.getClass()) return false;
         Board other = (Board) obj;
         //not the same size --> not same board.
-        if(other.cols != this.cols || other.rows != this.cols) return false;
+        if(other.cols != this.cols || other.rows != this.rows) return false;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (!this.Cells[i][j].equals(other.Cells[i][j])) return false;
