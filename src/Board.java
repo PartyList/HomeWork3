@@ -3,7 +3,6 @@ import java.util.Random;
 public class Board {
     private Cell[][] Cells;
     final int rows,cols;
-    final int DEAD_CELL = 3;
 
     public Board(int rows, int cols,int seed, int range) {
         this.rows = rows;
