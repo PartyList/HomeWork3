@@ -4,7 +4,6 @@ public abstract class Cell extends Position {
         super(row, column);
     }
 
-
     /**
      * This method is to convert the condition to string.
      *
@@ -27,25 +26,4 @@ public abstract class Cell extends Position {
      * @return 0 when sick , 1 when healthy otherwise 2.
      */
     public abstract int cellHealthyOrSick();
-
-
-
-    /**
-     * returns the numerical value of the cell
-     *
-     * @return The specified number for each condition from Healthy to Dead
-     * In case of undefined cell we get -1 (Which defines Cell)
-     */
-    public abstract int hashCode();
-
-    public boolean equals(Object other) {
-        if (!(other instanceof Cell)) {
-            return false;
-        }
-        return (this.getClass() == other.getClass());
-    }
-
-
-
-
 }

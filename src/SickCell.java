@@ -20,7 +20,6 @@ public class SickCell extends Cell {
      * returns the numerical value of the cell
      *
      * @return The specified number for each condition from Healthy to Dead
-     * In case of undefined cell we get -1 (Which defines Cell)
      */
     public int hashCode() {
         return SICK_CELL;
