@@ -13,6 +13,7 @@ public class DyingCell extends Cell {
      *
      * @return string for LIVING CONDITION
      */
+    @Override
     public String conditionToString() {
         return "D";
     }

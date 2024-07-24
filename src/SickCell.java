@@ -14,6 +14,7 @@ public class SickCell extends Cell {
      *
      * @return string for LIVING CONDITION
      */
+    @Override
     public String conditionToString() {
         return "S";
     }

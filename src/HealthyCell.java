@@ -47,7 +47,6 @@ public class HealthyCell extends Cell {
      * @param sickNeighbors    the amount of sick neighbors of the cell
      * @return the new cell for the next generation
      */
-    @Override
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
         //The cell is healthy
         if (sickNeighbors > TOO_MANY_SICK || healthyNeighbors < NOT_ENOUGH_HEALTHY || healthyNeighbors > ENOUGH_HEALTHY) {

@@ -13,6 +13,7 @@ public class DeadCell extends Cell {
      *
      * @return string for LIVING CONDITION
      */
+    @Override
     public String conditionToString() {
         return "-";
     }
