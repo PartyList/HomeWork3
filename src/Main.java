@@ -49,32 +49,32 @@ public class Main {
         }
     }
 
-    public static void test1(){
+    public static void test1() {
         Game game = new Game(3, 3, 3, 2, 1);
         game.runGame();
         System.out.println("Run the game again.");
         game.runGame();
     }
 
-    public static void test2(){
-        Board board1 = new Board(3,3,3,3);
-        Board board2 = new Board(3,3,3,3);
+    public static void test2() {
+        Board board1 = new Board(3, 3, 3, 3);
+        Board board2 = new Board(3, 3, 3, 3);
 
         System.out.println("Is board1 equal to board2: " + board1.equals(board2));
         System.out.println("Is board2 equal to board1: " + board2.equals(board1));
     }
 
-    public static void test3(){
+    public static void test3() {
         Game game = new Game(4, 4, 2, 2, 10);
         game.runGame();
     }
 
-    public static void test4(){
+    public static void test4() {
         Game game = new Game(4, 4, 16, 2, 10);
         game.runGame();
     }
 
-    public static void test5(){
+    public static void test5() {
         Game game = new Game(12, 12, 16, 2, 100);
         game.runGame();
     }

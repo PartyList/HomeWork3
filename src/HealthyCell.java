@@ -3,10 +3,12 @@ public class HealthyCell extends Cell {
     final int ENOUGH_HEALTHY = 3;
     final int NOT_ENOUGH_HEALTHY = 2;
     final int HEALTHY_CELL = 3;
-    final int IS_HEALTHY =1;
+    final int IS_HEALTHY = 1;
+
     public HealthyCell(int row, int column) {
         super(row, column);
     }
+
     /**
      * This method is to convert the condition to string.
      *
@@ -26,6 +28,7 @@ public class HealthyCell extends Cell {
     public int hashCode() {
         return HEALTHY_CELL;
     }
+
     /**
      * Checks if both compared cells (this and other) are
      *
@@ -36,10 +39,12 @@ public class HealthyCell extends Cell {
     public boolean equals(Object other) {
         return (other instanceof HealthyCell);
     }
+
     /**
      * Looks unto the neighbors (only healthy and sick neighbors) of the Cell and returns the cell of the new generation accordingly
+     *
      * @param healthyNeighbors the amount of healthy neighbors of the cell
-     * @param sickNeighbors the amount of sick neighbors of the cell
+     * @param sickNeighbors    the amount of sick neighbors of the cell
      * @return the new cell for the next generation
      */
     @Override
@@ -57,7 +62,7 @@ public class HealthyCell extends Cell {
      *
      * @return 0 when sick , 1 when healthy otherwise 2.
      */
-    public int cellHealthyOrSick(){
+    public int cellHealthyOrSick() {
         return IS_HEALTHY;
     }
 }

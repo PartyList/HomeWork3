@@ -1,11 +1,13 @@
 public class DyingCell extends Cell {
-    final int HEALTHY_NEIGHBORS_TO_BE_HEALTHY =3;
+    final int HEALTHY_NEIGHBORS_TO_BE_HEALTHY = 3;
     final int TOO_MANY_SICK = 1;
     final int DYING_CELL = 1;
     final int INVALID = 2;
+
     public DyingCell(int row, int column) {
         super(row, column);
     }
+
     /**
      * This method is to convert the condition to string.
      *
@@ -24,6 +26,7 @@ public class DyingCell extends Cell {
     public int hashCode() {
         return DYING_CELL;
     }
+
     /**
      * Checks if both compared cells (this and other) are
      *
@@ -37,8 +40,9 @@ public class DyingCell extends Cell {
 
     /**
      * Looks unto the neighbors (only healthy and sick neighbors) of the Cell and returns the cell of the new generation accordingly
+     *
      * @param healthyNeighbors the amount of healthy neighbors of the cell
-     * @param sickNeighbors the amount of sick neighbors of the cell
+     * @param sickNeighbors    the amount of sick neighbors of the cell
      * @return the new cell for the next generation
      */
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
@@ -55,7 +59,7 @@ public class DyingCell extends Cell {
      *
      * @return 0 when sick , 1 when healthy otherwise 2.
      */
-    public int cellHealthyOrSick(){
+    public int cellHealthyOrSick() {
         return INVALID;
     }
 
