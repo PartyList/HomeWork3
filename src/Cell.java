@@ -1,7 +1,10 @@
-public abstract class Cell extends Position {
+public abstract class Cell {
+    protected final int cell_row;
+    protected final int cell_col;
 
     public Cell(int row, int column) {
-        super(row, column);
+        cell_row = row;
+        cell_col = column;
     }
 
     /**

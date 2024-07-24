@@ -1,9 +1,9 @@
 public class HealthyCell extends Cell {
-    final int TOO_MANY_SICK = 3;
-    final int ENOUGH_HEALTHY = 3;
-    final int NOT_ENOUGH_HEALTHY = 2;
-    final int HEALTHY_CELL = 3;
-    final int IS_HEALTHY = 1;
+    private final int TOO_MANY_SICK = 3;
+    private final int ENOUGH_HEALTHY = 3;
+    private final int NOT_ENOUGH_HEALTHY = 2;
+    private final int HEALTHY_CELL = 3;
+    private final int IS_HEALTHY = 1;
 
     public HealthyCell(int row, int column) {
         super(row, column);
@@ -51,7 +51,7 @@ public class HealthyCell extends Cell {
         //The cell is healthy
         if (sickNeighbors > TOO_MANY_SICK || healthyNeighbors < NOT_ENOUGH_HEALTHY || healthyNeighbors > ENOUGH_HEALTHY) {
             //the cell is sick
-            return new SickCell(this.row, this.column);
+            return new SickCell(this.cell_row, this.cell_col);
         }
         return this;
     }

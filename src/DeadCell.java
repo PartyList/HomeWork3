@@ -1,7 +1,7 @@
 public class DeadCell extends Cell {
-    final int HEALTHY_NEIGHBORS_TO_BE_HEALTHY = 3;
-    final int DEAD_CELL = 0;
-    final int INVALID = 2;
+    private final int HEALTHY_NEIGHBORS_TO_BE_HEALTHY = 3;
+    private final int DEAD_CELL = 0;
+    private final int INVALID = 2;
 
 
     public DeadCell(int row, int column) {
@@ -49,7 +49,7 @@ public class DeadCell extends Cell {
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
         //Bring the cell to life.
         if (healthyNeighbors == HEALTHY_NEIGHBORS_TO_BE_HEALTHY) {
-            return new HealthyCell(this.row, this.column);
+            return new HealthyCell(this.cell_row, this.cell_col);
         }
         return this;
     }
