@@ -25,6 +25,18 @@ public class SickCell extends Cell {
     public int hashCode() {
         return SICK_CELL;
     }
+
+    /**
+     * Checks if both compared cells (this and other) are
+     *
+     * @param other
+     * @return
+     */
+    @Override
+    public boolean equals(Object other) {
+        return (other instanceof SickCell);
+    }
+
     /**
      * Looks unto the neighbors (only healthy and sick neighbors) of the Cell and returns the cell of the new generation accordingly
      * @param healthyNeighbors the amount of healthy neighbors of the cell

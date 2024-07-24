@@ -24,6 +24,16 @@ public class DyingCell extends Cell {
     public int hashCode() {
         return DYING_CELL;
     }
+    /**
+     * Checks if both compared cells (this and other) are
+     *
+     * @param other
+     * @return
+     */
+    @Override
+    public boolean equals(Object other) {
+        return (other instanceof DyingCell);
+    }
 
     /**
      * Looks unto the neighbors (only healthy and sick neighbors) of the Cell and returns the cell of the new generation accordingly
