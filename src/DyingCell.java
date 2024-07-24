@@ -2,6 +2,7 @@ public class DyingCell extends Cell {
     final int HEALTHY_NEIGHBORS_TO_BE_HEALTHY =3;
     final int TOO_MANY_SICK = 1;
     final int DYING_CELL = 1;
+    final int INVALID = 2;
     public DyingCell(int row, int column) {
         super(row, column);
     }
@@ -10,7 +11,6 @@ public class DyingCell extends Cell {
      *
      * @return string for LIVING CONDITION
      */
-    @Override
     public String conditionToString() {
         return "D";
     }
@@ -21,7 +21,6 @@ public class DyingCell extends Cell {
      * @return The specified number for each condition from Healthy to Dead
      * In case of undefined cell we get -1 (Which defines Cell)
      */
-    @Override
     public int hashCode() {
         return DYING_CELL;
     }
@@ -32,7 +31,6 @@ public class DyingCell extends Cell {
      * @param sickNeighbors the amount of sick neighbors of the cell
      * @return the new cell for the next generation
      */
-    @Override
     public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
         //The cell dies
         if (healthyNeighbors != HEALTHY_NEIGHBORS_TO_BE_HEALTHY || sickNeighbors > TOO_MANY_SICK) {
@@ -42,5 +40,13 @@ public class DyingCell extends Cell {
         return new HealthyCell(this.row, this.column);
     }
 
+    /**
+     * A method to see of a cell is healthy or sick.
+     *
+     * @return 0 when sick , 1 when healthy otherwise 2.
+     */
+    public int cellHealthyOrSick(){
+        return INVALID;
+    }
 
 }

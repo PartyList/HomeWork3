@@ -3,6 +3,7 @@ public class HealthyCell extends Cell {
     final int ENOUGH_HEALTHY = 3;
     final int NOT_ENOUGH_HEALTHY = 2;
     final int HEALTHY_CELL = 3;
+    final int IS_HEALTHY =1;
     public HealthyCell(int row, int column) {
         super(row, column);
     }
@@ -40,5 +41,14 @@ public class HealthyCell extends Cell {
             return new SickCell(this.row, this.column);
         }
         return this;
+    }
+
+    /**
+     * A method to see of a cell is healthy or sick.
+     *
+     * @return 0 when sick , 1 when healthy otherwise 2.
+     */
+    public int cellHealthyOrSick(){
+        return IS_HEALTHY;
     }
 }

@@ -1,10 +1,5 @@
-public class Cell extends Position {
-    final int CELL = -1;
-    final int HEALTHY_CELL = 3;
-    final int SICK_CELL = 2;
-    final int HEALTHY = 1;
-    final int SICK = 0;
-    final int ERROR = 2;
+public abstract class Cell extends Position {
+    final int UNDEFINED = -1;
 
     public Cell(int row, int column) {
         super(row, column);
@@ -16,25 +11,7 @@ public class Cell extends Position {
      *
      * @return string for LIVING CONDITION
      */
-    public String conditionToString() {
-        return "";
-    }
-
-    public boolean equals(Object other) {
-        return (other != null && this.getClass() == other.getClass());
-    }
-
-    /**
-     * returns the numerical value of the cell
-     *
-     * @return The specified number for each condition from Healthy to Dead
-     * In case of undefined cell we get -1 (Which defines Cell)
-     */
-    @Override
-    public int hashCode() {
-        return CELL;
-    }
-
+    public abstract String conditionToString();
 
     /**
      * Looks unto the neighbors (only healthy and sick neighbors) of the Cell and returns the cell of the new generation accordingly
@@ -43,23 +20,33 @@ public class Cell extends Position {
      * @param sickNeighbors    the amount of sick neighbors of the cell
      * @return the new cell for the next generation
      */
-    public Cell nextGeneration(int healthyNeighbors, int sickNeighbors) {
-        return this;
-    }
+    public abstract Cell nextGeneration(int healthyNeighbors, int sickNeighbors);
 
     /**
-     *   A method to see of a cell is healthy or sick.
+     * A method to see of a cell is healthy or sick.
      *
-     *   @return 0 when sick , 1 when healthy otherwise 2.
-     *
+     * @return 0 when sick , 1 when healthy otherwise 2.
      */
-    public int cellHealthyOrSick() {
-        if (this.hashCode() == HEALTHY_CELL)
-            return HEALTHY;
-        else if (this.hashCode() == SICK_CELL)
-            return SICK;
+    public abstract int cellHealthyOrSick();
 
-        return ERROR;
 
+
+    /**
+     * returns the numerical value of the cell
+     *
+     * @return The specified number for each condition from Healthy to Dead
+     * In case of undefined cell we get -1 (Which defines Cell)
+     */
+    public abstract int hashCode();
+
+    public boolean equals(Object other) {
+        if (!(other instanceof Cell)) {
+            return false;
+        }
+        return (this.getClass() == other.getClass());
     }
+
+
+
+
 }
